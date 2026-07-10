@@ -1,3 +1,5 @@
+// I did a reasearch and I changed the program to save in JSON format. You can see the code in Journal.cs file in the methods: SaveToFile and LoadFromFile
+
 using System;
 
 class Program
