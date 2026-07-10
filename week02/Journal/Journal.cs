@@ -1,4 +1,9 @@
 using System.IO;
+using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Text.Unicode;
+
+
 
 public class Journal
 {
@@ -21,31 +26,36 @@ public class Journal
 
     public void SaveToFile(string file, List<Entry> entries)
     {
-        using (StreamWriter outputFile = new StreamWriter(file))
-        {
-            foreach (Entry entry in entries)
-            {
-                outputFile.WriteLine($"{entry._date}|{entry._promptText}|{entry._entryText}");
-            }
-        }
+
+        var options = new JsonSerializerOptions { WriteIndented = true, IncludeFields = true };
+        var json = JsonSerializer.Serialize(entries, options);
+        File.WriteAllText(file, json);
     }
 
     public void LoadFromFile(string file, List<Entry> entries)
     {
-        string filename = file;
-        string[] lines = System.IO.File.ReadAllLines(filename);
 
-        foreach (string line in lines)
+        if (!File.Exists(file)) return;
+
+        try
         {
-            string[] parts = line.Split("|");
+            var options = new JsonSerializerOptions
+            {
+                IncludeFields = true,
+                Encoder = JavaScriptEncoder.Create(UnicodeRanges.All)
+            };
 
-            Entry entry = new Entry();
+            var json = File.ReadAllText(file);
+            var loaded = JsonSerializer.Deserialize<List<Entry>>(json, options);
 
-            entry._date = parts[0];
-            entry._promptText = parts[1];
-            entry._entryText = parts[2];
+            if (loaded == null) return;
 
-            entries.Add(entry);
+            entries.Clear();
+            entries.AddRange(loaded);
+        }
+        catch (Exception ex)
+        {
+            System.Console.WriteLine($"Error loading JSON file: {ex.Message}");
         }
 
     }
