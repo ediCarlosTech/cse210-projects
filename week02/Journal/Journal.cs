@@ -18,9 +18,7 @@ public class Journal
     {
         foreach (Entry entry in _entries)
         {
-            System.Console.WriteLine($"Date: {entry._date} - Prompt: {entry._promptText}");
-            System.Console.WriteLine($"response: {entry._entryText}");
-            System.Console.WriteLine();
+            entry.Display();
         }
     }
 
