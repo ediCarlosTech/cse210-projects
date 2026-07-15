@@ -4,7 +4,7 @@ public class Reference
     private string _book;
     private int _chapter;
     private int _verse;
-    private int _endVerse;
+    private int? _endVerse = null;
 
     public Reference(string book, int chapter, int verse)
     {
@@ -23,7 +23,8 @@ public class Reference
 
     public string GetDisplayText()
     {
-        return "";
+        string endVerse = _endVerse.HasValue ? $"-{_endVerse.Value.ToString()}" : "";
+        return $"{_book} {_chapter}:{_verse}{endVerse}";
     }
 
 }
