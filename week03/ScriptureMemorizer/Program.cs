@@ -1,3 +1,5 @@
+// I prepared the code to use a list of scriptures. And I use another option in the program. The use can type the letter "s" to see the whole text again. You can see the code at line 71.
+
 using System;
 
 class Program
