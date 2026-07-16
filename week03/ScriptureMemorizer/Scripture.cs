@@ -17,6 +17,23 @@ public class Scripture
 
     }
 
+    public Reference GetReference()
+    {
+        return _reference;
+    }
+
+    public string GetWords()
+    {
+        string text = "";
+
+        foreach (Word w in _words)
+        {
+            text += $" {w.GetDisplayText()}";
+        }
+
+        return text;
+    }
+
     public void HideRandomWords(int numberToHide)
     {
         if (IsCompletelyHidden())
