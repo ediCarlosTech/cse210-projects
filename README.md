@@ -7,6 +7,9 @@ This repository contains the starter code for many different projects. They are 
 
 ### Stopped at: 
 
-* Super and Base
+* Activity Instructions
+
+
+
 
 
