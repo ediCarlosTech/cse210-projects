@@ -1,5 +1,5 @@
 /*
-    Exceeding Requirements
+    Exceeding Requirements:
     I implemented the idea of "Keeping a log of how many times activities were performed."
     and I created an option in the menu to view the history of the log.
 */
