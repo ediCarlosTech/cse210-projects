@@ -7,7 +7,7 @@ This repository contains the starter code for many different projects. They are 
 
 ### Stopped at: 
 
-* Activity Instructions
+* A Powerful Combination
 
 
 
