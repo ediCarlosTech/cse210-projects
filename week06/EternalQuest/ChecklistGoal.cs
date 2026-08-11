@@ -1,6 +1,6 @@
 public class ChecklistGoal : Goal
 {
-    private int _amountCompleted;
+    private int _amountCompleted = 0;
     private int _target;
     private int _bonus;
     public ChecklistGoal(string name, string description, int points, int target, int bonus) : base(name, description, points)
@@ -11,21 +11,41 @@ public class ChecklistGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        throw new NotImplementedException();
+        return $"ChecklistGoal | {GetShortName()} | {GetDescription()} | {GetPoints()} | {_bonus} | {_target} | {_amountCompleted}";
     }
 
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        if (_amountCompleted >= _target)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public override void RecordEvent()
     {
-        throw new NotImplementedException();
+        _amountCompleted++;
     }
 
     public override string GetDetailsString()
     {
-        return "";
+        return $"{base.GetDetailsString()} | Completed {_amountCompleted / _target} times";
+    }
+
+    public void SetAmountCompleted(int amount)
+    {
+        _amountCompleted = amount;
+    }
+
+    public override int GetPoints()
+    {
+        if (_amountCompleted >= _target)
+        {
+            return _points + _bonus;
+        }
+
+        return _points;
     }
 }
