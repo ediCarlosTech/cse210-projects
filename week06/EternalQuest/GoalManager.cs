@@ -1,3 +1,5 @@
+// To exceeding requirements, I got an idea of a friend of mine and you can see in the line 59 of this GoalManager Class a method to show a Rank of the player.
+
 using System.Security.Cryptography;
 
 public class GoalManager
@@ -55,6 +57,7 @@ public class GoalManager
         return $"Score: {_score} | Rank: {GetPlayerRank()} ({_totalCompletions} completions)";
     }
 
+    // this is the code for the Exceeding Requirements
     public string GetPlayerRank()
     {
         if (_totalCompletions <= 4)
