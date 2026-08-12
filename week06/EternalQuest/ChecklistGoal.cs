@@ -31,7 +31,7 @@ public class ChecklistGoal : Goal
 
     public override string GetDetailsString()
     {
-        return $"{base.GetDetailsString()} | Completed {_amountCompleted / _target} times";
+        return $"{base.GetDetailsString()} | Completed {_amountCompleted}/{_target} times";
     }
 
     public void SetAmountCompleted(int amount)
