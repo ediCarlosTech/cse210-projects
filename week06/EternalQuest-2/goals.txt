@@ -1,0 +1,3 @@
+200
+SimpleGoal:Read the Bible|Read the Bible 10 minutes a day|100|True
+EternalGoal:Read the Bible|read the bible at least 10 minutes a day|100|False

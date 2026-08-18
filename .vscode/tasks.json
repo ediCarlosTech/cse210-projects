@@ -212,6 +212,19 @@
         },
 
         {
+            "label": "build-week06-EternalQuest-2",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/week06/EternalQuest-2/EternalQuest-2.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+
+        {
             "label": "build-week07-ExerciseTracking",
             "command": "dotnet",
             "type": "process",
